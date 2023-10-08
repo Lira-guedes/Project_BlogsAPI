@@ -9,7 +9,7 @@ const postUserService = async (userData) => {
   const newUser = await User.create({ displayName, email, password, image });
 
   if (user) return { status: 409, data: { message: 'User already registered' } };
-  if (!newUser) return { status: 400, data: { message: 'User not created' } };
+  if (!newUser) return { status: 500, data: { message: 'User not created' } };
 
   const token = jwt.sign(newUser, JWT_SECRET, { expiresIn: '7d' });
 
