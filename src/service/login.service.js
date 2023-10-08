@@ -4,10 +4,10 @@ const loginService = async (email, password) => {
   const user = await User.findOne({ where: { email } });
 
   if (!user || user.password !== password) { 
-    return ({ status: 'BAD_REQUEST', data: { message: 'Some required fields are missing' } });
+    return ({ status: 400, data: { message: 'Invalid fields' } });
   }
 
-  return { status: 'OK', data: user };
+  return { status: 200, data: user };
 };
 
 module.exports = {
