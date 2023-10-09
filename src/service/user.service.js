@@ -17,7 +17,7 @@ const postUserService = async (userData) => {
 };
 
 const findUserService = async () => {
-  const users = await User.findAll({ atribbutes: { exclude: ['password'] } });
+  const users = await User.findAll({ atribbutes: ['id', 'displayName', 'email', 'image'] });
   return { status: 200, data: users };
 };
 
