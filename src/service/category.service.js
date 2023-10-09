@@ -11,7 +11,7 @@ const postCategoryService = async (name) => {
 const findAllCategories = async () => {
   const categories = await Category.findAll();
   if (!categories) return { status: 404, data: { message: 'Categoy not found' } };
-  return { status: 201, data: categories };
+  return { status: 200, data: categories };
 };
 
 module.exports = {
